@@ -47,11 +47,11 @@ RULES:
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
-                        system_instruction: {
-                            parts: [{ text: systemPrompt }]
-                        },
                         contents: [
-                            { role: "user", parts: [{ text: message }] }
+                            {
+                                role: "user",
+                                parts: [{ text: `SYSTEM INSTRUCTION: ${systemPrompt}\n\nUSER MESSAGE: ${message}` }]
+                            }
                         ],
                         generationConfig: {
                             temperature: 0.7,
@@ -62,10 +62,22 @@ RULES:
             );
 
             const data = await response.json();
-            let aiText = "I apologize, but I'm having trouble connecting right now. Please call us at +1 760-539-7890 for immediate assistance.";
 
+            if (data.error) {
+                console.error("Gemini API Error:", data.error);
+                return new Response(JSON.stringify({
+                    response: `API Error: ${data.error.message || "Unknown error"}. Please check your API key and model access.`
+                }), {
+                    headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
+                });
+            }
+
+            let aiText = "";
             if (data.candidates && data.candidates[0]?.content?.parts?.[0]?.text) {
                 aiText = data.candidates[0].content.parts[0].text;
+            } else {
+                console.error("Unexpected API Response Structure:", JSON.stringify(data));
+                aiText = "I apologize, but I'm having trouble processing your request. Please call us at +1 760-539-7890.";
             }
 
             return new Response(JSON.stringify({ response: aiText }), {
