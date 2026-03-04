@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARIA | Fine Persian & Mediterranean Dining in San Marcos</title>
+    <meta name="description"
+        content="Experience authentic Persian and Mediterranean cuisine at ARIA. Fine dining, catering, and events in San Marcos, California. Halal certified.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+    <header id="main-header">
+        <div class="logo">
+            <img src="assets/logo.png" alt="ARIA Logo" style="height: 50px;">
+        </div>
+        <nav>
+            <a href="#menu">Menu</a>
+            <a href="#experience">The Experience</a>
+            <a href="#private-dining">Private Dining</a>
+            <a href="#reservations">Reservations</a>
+        </nav>
+        <button class="btn-book" onclick="toggleChatbot()">Reserve</button>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-video-container">
+                <img src="assets/hero.png" alt="Aria Fine Dining" class="hero-image">
+            </div>
+            <div class="hero-content">
+                <p>Authentic • Refined • Halal</p>
+                <h1>An Unforgettable Flavour</h1>
+                <button class="btn-book" onclick="scrollToSection('experience')">Discover More</button>
+            </div>
+        </section>
+
+        <section id="experience" class="section">
+            <div class="section-content">
+                <div class="section-gold-line"></div>
+                <h2 class="section-title">The Experience</h2>
+                <p class="section-text">
+                    At Aria, we bring the rich culinary heritage of Persia and the Mediterranean to San Marcos. Our
+                    kitchen focuses on authentic flavors, using fresh ingredients and traditional techniques to create
+                    dishes that resonate with history and passion.
+                    <br><br>
+                    From our signature Beef Koobideh to our delicate saffron-infused rice, every plate is a celebration
+                    of quality and taste.
+                </p>
+                <a href="#" class="btn-book"
+                    style="color: var(--color-charcoal); border-color: var(--color-charcoal);">View Menu</a>
+            </div>
+            <div class="section-image">
+                <img src="assets/ambiance.png" alt="Aria Ambiance">
+            </div>
+        </section>
+
+        <section id="private-dining" class="section"
+            style="flex-direction: row-reverse; background-color: var(--color-charcoal); color: var(--color-ivory);">
+            <div class="section-content">
+                <div class="section-gold-line"></div>
+                <h2 class="section-title" style="color: var(--color-ivory);">Private Dining & Catering</h2>
+                <p class="section-text" style="color: #aaa;">
+                    Celebrate your most precious moments in our intimate private dining room. Whether it's a corporate
+                    event, a family gathering, or a special celebration, we provide a bespoke experience tailored to
+                    your needs.
+                    <br><br>
+                    Our catering services bring the Aria experience to your doorstep, ensuring your guests enjoy the
+                    same premium quality we serve in-house.
+                </p>
+                <a href="mailto:ariarestaurantsd@gmail.com" class="btn-book">Inquire Now</a>
+            </div>
+            <div class="section-image">
+                <img src="assets/private-dining.png" alt="Private Dining Room">
+            </div>
+        </section>
+
+        <section id="location" class="map-section">
+            <!-- Map will be initialized here -->
+            <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                src="https://maps.google.com/maps?q=1650%20Descanso%20Ave,%20San%20Marcos,%20CA%2092078&t=&z=15&ie=UTF8&iwloc=&output=embed">
+            </iframe>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <img src="assets/logo.png" alt="ARIA Logo" style="height: 60px; margin-bottom: 1.5rem;">
+                <p>1650 Descanso Ave,<br>San Marcos, CA 92078</p>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <p>T: +1 760-539-7890</p>
+                <p>E: ariarestaurantsd@gmail.com</p>
+                <div style="margin-top: 1rem; display: flex; gap: 1rem;">
+                    <a href="https://www.instagram.com/ariarestaurants" target="_blank"><i
+                            data-lucide="instagram"></i></a>
+                    <a href="https://www.facebook.com/ariarestaurants" target="_blank"><i
+                            data-lucide="facebook"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Hours</h4>
+                <p>Mon - Sun: 11:30 AM - 9:00 PM</p>
+                <p>Fri - Sat: 11:30 AM - 9:30 PM</p>
+            </div>
+            <div class="footer-col">
+                <h4>Newsletter</h4>
+                <p>Join our mailing list for updates and events.</p>
+                <div class="newsletter-box">
+                    <input type="email" placeholder="Email Address">
+                    <button>Sign Up</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Aria Restaurant. All rights reserved.</p>
+            <p>Designed with Quiet Luxury</p>
+        </div>
+    </footer>
+
+    <!-- Chatbot Window -->
+    <div class="chatbot-toggle" id="chat-toggle" onclick="toggleChatbot()">
+        <i data-lucide="message-square" style="color: var(--color-gold);"></i>
+    </div>
+
+    <div class="chatbot-window" id="chat-window">
+        <div class="chatbot-header">
+            <h3>Aria Concierge</h3>
+            <span class="chatbot-close" onclick="toggleChatbot()">&times;</span>
+        </div>
+        <div class="chatbot-messages" id="chat-messages">
+            <div class="message bot">
+                Experience excellence at Aria. How may I assist you with your reservation or any questions today?
+            </div>
+        </div>
+        <div class="chatbot-input-area">
+            <button class="btn-voice" id="voice-btn" onclick="startVoice()">
+                <i data-lucide="mic"></i>
+            </button>
+            <input type="text" class="chatbot-input" id="chat-input" placeholder="Ask about hours, menu, parking..."
+                onkeypress="handleKeyPress(event)">
+            <button class="btn-send" onclick="sendMessage()">
+                <i data-lucide="send"></i>
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
