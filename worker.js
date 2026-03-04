@@ -63,7 +63,7 @@ Keep responses under 2 sentences unless more detail is absolutely necessary. Be 
             console.error("Worker error:", error);
             return new Response(
                 JSON.stringify({
-                    response: "I'm experiencing technical difficulties. Please call us at +1 760-539-7890 or visit us at 1650 Descanso Ave.",
+                    response: "I'm experiencing technical difficulties. Please call us at +1 760-539-7890.",
                 }),
                 {
                     status: 500,

@@ -43,7 +43,7 @@ async function sendMessage() {
     container.scrollTop = container.scrollHeight;
 
     try {
-        const response = await fetch('/api/chat', {
+        const response = await fetch('https://lucky-resonance-9493.cogniq-bharath.workers.dev/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
